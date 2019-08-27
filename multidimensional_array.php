@@ -1,5 +1,7 @@
 <?php
+    //More Specificly We are implementing C++ std::map<string, vector<string> > here.
     //Sub categories
+    //Must Visit This Link : https://stackoverflow.com/questions/16469947/how-to-check-if-an-associative-array-has-an-empty-or-null-value
     $sub = array("Deshi","Chinese","Italian");
     $sub_din = array("Halka","Vari");
     $sub_desert = array("Liquid","Solid");
@@ -14,7 +16,7 @@
     $categories[$pcat] = $sub;
     $categories[$another] = $sub_din;
     $categories[$desert] = $sub_desert;
-    $categories[$brf] = null;
+    $categories[$brf] = NULL; //Insert NULL value.
 
     //Printing Data
     // echo count($categories['Lunch']);
@@ -29,8 +31,17 @@
 
     echo "<h1>Detailed</h1>";
     foreach($categories as $key => $val){
-        $len = count($categories[$key]);
-        echo "Category ". $key ." has ". $len . " subcategories";
-        echo "<br>";
+        // echo is_null($categories[$key]);  
+        if(is_null($categories[$key])){
+            //If this category don't have any subcategory then we don't nedd to do anything.
+            echo "Category ". $key . " has no subcategory";
+        }
+
+        //If Category has subcategory then do
+        else {
+            $len = count($categories[$key]);
+            echo "Category ". $key ." has ". $len . " subcategories";
+            echo "<br>";
+        }
     }
 ?>
